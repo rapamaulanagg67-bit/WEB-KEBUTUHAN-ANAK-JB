@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05050a">
+  <title>CEO RAFFSTR JOKI ELITE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="splash" class="splash">
+    <div class="splash-logo">RAFFSTR</div>
+    <div class="loader"></div>
+    <p>WELCOME TO WEBSITE CEO RAFFSTR JOKI ELITE</p>
+    <small>Tunggu sebentar...</small>
+  </div>
+
+  <main id="app" class="app hidden">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">WELCOME TO</span>
+        <h1>CEO RAFFSTR <b>JOKI ELITE</b></h1>
+      </div>
+      <button class="icon-btn" id="themeBtn" title="Ganti tema">☾</button>
+    </header>
+
+    <section id="home" class="page active">
+      <div class="hero glass">
+        <div class="hero-badge">⚡ FAST • TRUSTED • RESPONSIVE</div>
+        <h2>Joki & Digital Service</h2>
+        <p>Pilih layanan yang kamu butuhkan. Order → bayar → konfirmasi → hubungi admin.</p>
+        <div class="hero-actions">
+          <button class="primary" data-go="joki">ORDER JOKI</button>
+          <button class="secondary" data-go="digital">LIHAT DIGITAL</button>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat glass"><strong>5</strong><span>Paket Joki</span></div>
+        <div class="stat glass"><strong>10+</strong><span>Digital</span></div>
+        <div class="stat glass"><strong>24/7</strong><span>Order Online</span></div>
+      </div>
+
+      <div class="notice glass">
+        <b>📌 CARA ORDER</b>
+        <p>1. Pilih paket/produk → 2. Tekan Order → 3. Bayar DANA/QRIS → 4. Kirim bukti → 5. Konfirmasi → 6. Hubungi admin.</p>
+      </div>
+    </section>
+
+    <section id="joki" class="page">
+      <div class="section-head">
+        <div><span class="eyebrow">SERVICE</span><h2>Joki Kontak</h2></div>
+        <span class="pill">PILIH PAKET</span>
+      </div>
+      <p class="muted">Silahkan pilih paket terlebih dahulu.</p>
+      <div id="jokiList" class="grid"></div>
+    </section>
+
+    <section id="digital" class="page">
+      <div class="section-head">
+        <div><span class="eyebrow">STORE</span><h2>Digital</h2></div>
+        <span class="pill">ORDER</span>
+      </div>
+      <div id="digitalList" class="grid"></div>
+    </section>
+
+    <section id="profile" class="page">
+      <div class="profile-card glass">
+        <div class="avatar-wrap">
+          <img id="avatar" src="" alt="Foto profil">
+          <label class="avatar-edit">✎<input id="avatarInput" type="file" accept="image/*"></label>
+        </div>
+        <h2 id="profileName">RAFFSTR USER</h2>
+        <button class="secondary small" id="changeName">Ubah Nama</button>
+      </div>
+
+      <div class="menu-list">
+        <button class="menu-item" id="historyBtn"><span>🧾</span><div><b>Riwayat Pembelian</b><small>Lihat order yang tersimpan</small></div><i>›</i></button>
+        <button class="menu-item" id="editPhotoBtn"><span>🖼️</span><div><b>Ubah Foto Profil</b><small>Foto disimpan di perangkat</small></div><i>›</i></button>
+        <button class="menu-item" id="logoutBtn"><span>↪</span><div><b>Logout</b><small>Hapus sesi profil lokal</small></div><i>›</i></button>
+      </div>
+
+      <div id="historyBox" class="history glass hidden">
+        <div class="history-head"><b>Riwayat Pembelian</b><button id="clearHistory">Hapus</button></div>
+        <div id="historyList"></div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button data-go="home" class="nav-item active"><span>⌂</span><small>Beranda</small></button>
+    <button data-go="joki" class="nav-item"><span>⚡</span><small>Joki</small></button>
+    <button data-go="digital" class="nav-item"><span>◈</span><small>Digital</small></button>
+    <button data-go="profile" class="nav-item"><span>●</span><small>Profil</small></button>
+  </nav>
+
+  <div id="paymentModal" class="modal hidden">
+    <div class="modal-card">
+      <button class="close" id="closePayment">×</button>
+      <span class="eyebrow">ORDER SEKARANG</span>
+      <h2 id="payTitle">Pembayaran</h2>
+      <div class="order-summary">
+        <span id="payProduct">Produk</span>
+        <strong id="payPrice">Rp0</strong>
+      </div>
+
+      <div class="pay-box">
+        <div class="pay-label">DANA</div>
+        <div class="dana-number">083867468118</div>
+        <div class="pay-name">A/N: LIP</div>
+        <button class="secondary small" id="copyDana">Salin Nomor DANA</button>
+      </div>
+
+      <div class="pay-box">
+        <div class="pay-label">QRIS</div>
+        <img src="qris-raffstore.jpeg" class="qris" alt="QRIS Raffstore">
+        <p class="muted center">Scan QRIS di atas untuk melakukan pembayaran.</p>
+      </div>
+
+      <div class="upload-box">
+        <label for="proofInput">📎 Silahkan kirim bukti transfer di sini</label>
+        <input id="proofInput" type="file" accept="image/*">
+        <div id="proofName" class="muted">Belum ada bukti dipilih.</div>
+      </div>
+
+      <button class="primary full" id="confirmPayment">KONFIRMASI</button>
+      <p class="tiny">Konfirmasi di halaman ini hanya menyimpan status order di perangkat. Untuk verifikasi pembayaran, hubungi admin.</p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
